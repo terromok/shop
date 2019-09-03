@@ -55,3 +55,4 @@ function getAssocResult($sql)
         $array_result[] = $row;
     return $array_result;
 }
+

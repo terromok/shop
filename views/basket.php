@@ -13,14 +13,7 @@
     <div class="container" id="container-cart">
 
     <?foreach ($basket as $item):?>
-    <!--<div id="item_<?=$item['basket_id']?>">
-        <?=$item['name']?> <br>
-        <img src="/img/<?= $item['image'] ?>" width="150">
-        <br>
-        <button class="delete" id="<?=$item['basket_id']?>">Удалить</button>
-        <br>
-        Цена: <?=$item['price']?>  <br>
-    </div>-->
+
     <div id="item_<?=$item['basket_id']?>" class="product-in-cart">
         <div class="product-details">
             <div class="img-mini"><img src=../img/mini/<?=$item['image']?> alt=""></div>
@@ -32,9 +25,9 @@
             </div>
         </div>
         <div class="unite-price"><p>$<?=$item['price']?></p></div>
-        <div class="quantyty"><p>2</p></div>
+        <div class="quantyty"><p><?=$item['quantyty']?></p></div>
         <div class="shop-shipping"><p>free</p></div>
-        <div class="Subtotal"><p>\$300</p></div>
+        <div class="Subtotal"><p>$<?=$item['summ_row']?></p></div>
         <div class="ACTION"></div>
     </div>
     <?endforeach;?>

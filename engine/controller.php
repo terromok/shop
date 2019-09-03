@@ -111,6 +111,7 @@ function prepareVariables($page, $action, $id)
 
             $params['basket'] = getBasket();
             $params['summ'] = summFromBasket();
+            //$params['summRow'] = summFromBasketRow($id);
 
             break;
     }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Сен 02 2019 г., 03:25
+-- Время создания: Сен 04 2019 г., 00:08
 -- Версия сервера: 5.7.23
 -- Версия PHP: 7.1.22
 
@@ -31,22 +31,24 @@ SET time_zone = "+00:00";
 CREATE TABLE `basket` (
   `id` int(11) NOT NULL,
   `goods_id` int(11) NOT NULL,
-  `session_id` text NOT NULL
+  `goods_price` int(11) DEFAULT NULL,
+  `session_id` text NOT NULL,
+  `quantyty` int(11) NOT NULL,
+  `summ_row` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `basket`
 --
 
-INSERT INTO `basket` (`id`, `goods_id`, `session_id`) VALUES
-(16, 2, '35nnm7qnhktua2muamshdi4f2933fhv7'),
-(17, 2, '35nnm7qnhktua2muamshdi4f2933fhv7'),
-(18, 2, '35nnm7qnhktua2muamshdi4f2933fhv7'),
-(19, 1, '35nnm7qnhktua2muamshdi4f2933fhv7'),
-(20, 7, '35nnm7qnhktua2muamshdi4f2933fhv7'),
-(23, 8, '35nnm7qnhktua2muamshdi4f2933fhv7'),
-(24, 11, '35nnm7qnhktua2muamshdi4f2933fhv7'),
-(25, 3, '35nnm7qnhktua2muamshdi4f2933fhv7');
+INSERT INTO `basket` (`id`, `goods_id`, `goods_price`, `session_id`, `quantyty`, `summ_row`) VALUES
+(52, 2, 1, '1d5uosovhv7tnmjqu7afaadnc35v200j', 3, 3),
+(53, 3, 14, '1d5uosovhv7tnmjqu7afaadnc35v200j', 5, 70),
+(54, 8, 48, '1d5uosovhv7tnmjqu7afaadnc35v200j', 2, 96),
+(55, 10, 11, '1d5uosovhv7tnmjqu7afaadnc35v200j', 5, 55),
+(56, 1, 22, '1d5uosovhv7tnmjqu7afaadnc35v200j', 1, 22),
+(57, 9, 78, '1d5uosovhv7tnmjqu7afaadnc35v200j', 1, 78),
+(58, 11, 92, '1d5uosovhv7tnmjqu7afaadnc35v200j', 1, 92);
 
 -- --------------------------------------------------------
 
@@ -231,7 +233,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `basket`
 --
 ALTER TABLE `basket`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT для таблицы `category`
