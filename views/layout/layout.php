@@ -4,7 +4,8 @@
 	<meta charset="UTF-8">
 	<title>Главная страниица</title>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-	<link rel="stylesheet" href="../css/styles.css">
+	<!--<link rel="stylesheet" href="../css/styles.css">-->
+	<link rel="stylesheet" href= <?=STYLES?>>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="/js/basket.js"></script>
 </head>

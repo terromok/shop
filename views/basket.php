@@ -22,6 +22,8 @@
                 <p>Color: <span>Red</span></p>
                 <p>Size: <span>XII</span></p>
                 <button class="delete" id="<?=$item['basket_id']?>">Удалить</button>
+                <button class="addOne" id="<?=$item['basket_id']?>">' + '</button>
+                <button class="deleteOne" id="<?=$item['basket_id']?>">' - '</button>
             </div>
         </div>
         <div class="unite-price"><p>$<?=$item['price']?></p></div>

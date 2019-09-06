@@ -39,4 +39,64 @@
                     console.log(answer);
                 })();
             });
+
+            $(".addOne").on('click', function (e) {
+                let id = e.target.id;
+                (async () => {
+                    const response = await fetch('/api/addOneToBasket/', {
+                        method: 'POST',
+                        headers: new Headers({
+                            'Content-Type': 'application/json'
+                        }),
+                        body: JSON.stringify({
+                            id: id
+                        }),
+                    });
+                    const answer = await response.json();
+                    $('#counter').html(answer.count);
+                    $('#summ').html(answer.summ);
+                    //basket = answer.basket;              как-то надо асинхронно передать...
+                    console.log(answer);
+                })();
+            });
+
+            $(".deleteOne").on('click', function (e) {
+                let id = e.target.id;
+                (async () => {
+                    const response = await fetch('/api/deleteOneFromBasket/', {
+                        method: 'POST',
+                        headers: new Headers({
+                            'Content-Type': 'application/json'
+                        }),
+                        body: JSON.stringify({
+                            id: id
+                        }),
+                    });
+                    const answer = await response.json();
+                    $('#counter').html(answer.count);
+                    $('#summ').html(answer.summ);
+                    //basket = answer.basket;           как-то надо асинхронно передать...
+                    console.log(answer);
+                })();
+            });
+
+            $(".itemedit").on('click', function (e) {
+                let id = e.target.id;
+                (async () => {
+                    const response = await fetch('/api/itemEdit/', {
+                        method: 'POST',
+                        headers: new Headers({
+                            'Content-Type': 'application/json'
+                        }),
+                        body: JSON.stringify({
+                            id: id
+                        }),
+                    });
+                    const answer = await response.json();
+                    //$('#counter').html(answer.count);
+                    //$('#summ').html(answer.summ);
+                    //basket = answer.basket;           как-то надо асинхронно передать...
+                    console.log(answer);
+                })();
+            })
         });

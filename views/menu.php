@@ -17,7 +17,14 @@
 
 <ul class="menu">
 	<? if ($user == admin) :?>
-		<a href="/admin/">Админка</a>
+		<li><a href="/admin/">Админка</a>
+			<div class="mega">
+				<ul>
+					<li><a href="/goodsedit/">Редактор каталога</a></li>
+					<li><a href="">Редактор заказов</a></li>
+				</ul>
+			</div>
+		</li>
 	<?endif;?>
     <li><a href="/">Главная</a></li>
     <li><a href="/feedback/">Отзывы</a></li>

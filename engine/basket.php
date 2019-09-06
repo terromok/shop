@@ -7,6 +7,24 @@ function deleteFromBasket($id) {
     return executeQuery($sql);
 }
 
+function addOneToBasket($id) {
+    $id=(int)$id;
+    $session_id = session_id();
+    $sql = "UPDATE `basket` SET `quantyty`=`quantyty`+1, `summ_row` = `summ_row` + `goods_price` WHERE 
+        `session_id`='{$session_id}' AND `id`={$id}";
+    executeQuery($sql);
+    getBasket();
+}
+
+function deleteOneFromBasket($id) {   //пока без проверки на ноль
+    $id=(int)$id;
+    $session_id = session_id();
+    $sql = "UPDATE `basket` SET `quantyty`=`quantyty`-1, `summ_row` = `summ_row` - `goods_price` WHERE 
+        `session_id`='{$session_id}' AND `id`={$id}";
+    executeQuery($sql);
+    getBasket();
+}
+
 /*function summFromBasket() {
     $session_id = session_id();
     $sql = "SELECT SUM(goods.price) as summ FROM `basket`, `goods` WHERE basket.goods_id=goods.id AND `session_id` ='$session_id'";

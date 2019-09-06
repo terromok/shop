@@ -7,7 +7,7 @@ include "../config/main.php";
 
 $url_array = explode("/", $_SERVER['REQUEST_URI']);
 
-
+print_r($url_array);
 //Читаем параметр page из url, чтобы определить, какую страницу-шаблон
 //хочет увидеть пользователь, по умолчанию это будет index
 $page = "";

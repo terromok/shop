@@ -73,7 +73,23 @@ function prepareVariables($page, $action, $id)
             $params['goods'] = getAllGoods();
             break;
 
+        case 'goodsedit':
+
+
+            $params['goods'] = getAllGoods();
+            break;
+
         case 'item':
+            //print_r($page);
+            //print_r($action);
+            print_r($id);
+            $params['good'] = getOneGood($id);
+            break;
+
+        case 'itemedit':
+            //print_r($page);
+            //print_r($action);
+            //print_r($id);
             $params['good'] = getOneGood($id);
             break;
 
@@ -105,15 +121,54 @@ function prepareVariables($page, $action, $id)
                 echo json_encode($params);
                 die();
             }
+            if ($action == "addOneToBasket") {
+                $data = json_decode(file_get_contents('php://input'));
+                $id = (int)$data->id;
+
+                addOneToBasket($id);
+
+                $params['count'] = getBasketCount();
+                $params['summ'] = summFromBasket();
+                $params['id'] = $id;
+                $params['basket'] = getBasket();
+
+                header("Content-type: application/json");
+                echo json_encode($params);
+                die();
+            }
+            if ($action == "deleteOneFromBasket") {
+                $data = json_decode(file_get_contents('php://input'));
+                $id = (int)$data->id;
+
+                deleteOneFromBasket($id);
+
+                $params['count'] = getBasketCount();
+                $params['summ'] = summFromBasket();
+                $params['id'] = $id;
+                //$params['basket'] = getBasket();   не знаю, как подключить
+
+                header("Content-type: application/json");
+                echo json_encode($params);
+                die();
+            }    
+            if ($action == "itemEdit") {
+                $data = json_decode(file_get_contents('php://input'));
+                $id = (int)$data->id;
+                $params['goods'] = itemEdit($id);
+
+                header("Content-type: application/json");
+                echo json_encode($params);
+                die();
+            }
             break;
 
         case "basket":
 
             $params['basket'] = getBasket();
             $params['summ'] = summFromBasket();
-            //$params['summRow'] = summFromBasketRow($id);
 
             break;
+
     }
 
 

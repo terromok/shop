@@ -3,6 +3,7 @@
 define("TEMLATES_DIR", '../views/');
 define("ENGINE_DIR", "../engine/");
 define("LAYOUTS_DIR", 'layout/');
+define("STYLES", '/css/styles.css');
 
 
 /* DB config */
