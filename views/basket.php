@@ -19,17 +19,15 @@
             <div class="img-mini"><img src=../img/mini/<?=$item['image']?> alt=""></div>
             <div class="details">
                 <h4><?=$item['name']?></h4>
-                <p>Color: <span>Red</span></p>
-                <p>Size: <span>XII</span></p>
                 <button class="delete" id="<?=$item['basket_id']?>">Удалить</button>
                 <button class="addOne" id="<?=$item['basket_id']?>">' + '</button>
                 <button class="deleteOne" id="<?=$item['basket_id']?>">' - '</button>
             </div>
         </div>
         <div class="unite-price"><p>$<?=$item['price']?></p></div>
-        <div class="quantyty"><p><?=$item['quantyty']?></p></div>
+        <div id="quantyty_<?=$item['basket_id']?>" class="quantyty"><p><?=$item['quantyty']?></p></div>
         <div class="shop-shipping"><p>free</p></div>
-        <div class="Subtotal"><p>$<?=$item['summ_row']?></p></div>
+        <div id="Subtotal_<?=$item['basket_id']?>" class="Subtotal"><p>$<?=$item['summ_row']?></p></div>
         <div class="ACTION"></div>
     </div>
     <?endforeach;?>

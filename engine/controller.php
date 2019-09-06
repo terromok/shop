@@ -130,7 +130,7 @@ function prepareVariables($page, $action, $id)
                 $params['count'] = getBasketCount();
                 $params['summ'] = summFromBasket();
                 $params['id'] = $id;
-                $params['basket'] = getBasket();
+                $params['basket'] = getEditedRowBasket($id);
 
                 header("Content-type: application/json");
                 echo json_encode($params);
@@ -145,7 +145,7 @@ function prepareVariables($page, $action, $id)
                 $params['count'] = getBasketCount();
                 $params['summ'] = summFromBasket();
                 $params['id'] = $id;
-                //$params['basket'] = getBasket();   не знаю, как подключить
+                $params['basket'] = getEditedRowBasket($id);   //не знаю, как подключить
 
                 header("Content-type: application/json");
                 echo json_encode($params);

@@ -55,7 +55,18 @@
                     const answer = await response.json();
                     $('#counter').html(answer.count);
                     $('#summ').html(answer.summ);
-                    //basket = answer.basket;              как-то надо асинхронно передать...
+
+                    var $pQuantyty = $('<p />', {
+                      text: answer.basket.quantyty,
+                    });
+                    $('#quantyty_'+answer.id).empty();
+                    $('#quantyty_'+answer.id).append($pQuantyty);
+
+                    var $pSubtotal = $('<p />', {
+                      text: answer.basket.summ_row,
+                    });
+                    $('#Subtotal_'+answer.id).empty();
+                    $('#Subtotal_'+answer.id).append($pSubtotal);
                     console.log(answer);
                 })();
             });
@@ -75,7 +86,34 @@
                     const answer = await response.json();
                     $('#counter').html(answer.count);
                     $('#summ').html(answer.summ);
-                    //basket = answer.basket;           как-то надо асинхронно передать...
+                    if (answer.basket.quantyty > 0) {
+                        var $pQuantyty = $('<p />', {
+                          text: answer.basket.quantyty,
+                        });
+                        $('#quantyty_'+answer.id).empty();
+                        $('#quantyty_'+answer.id).append($pQuantyty);
+
+                        var $pSubtotal = $('<p />', {
+                            text: answer.basket.summ_row,
+                        });
+                        $('#Subtotal_'+answer.id).empty();
+                        $('#Subtotal_'+answer.id).append($pSubtotal);
+                    } else{
+                        (async () => {
+                            const response = await fetch('/api/deleteFromBasket/', {
+                                method: 'POST',
+                                headers: new Headers({
+                                    'Content-Type': 'application/json'
+                                }),
+                                body: JSON.stringify({
+                                    id: id
+                                }),
+                            });
+                            const answer = await response.json();
+                            $('#item_' + answer.id).remove();
+                        })();
+                    };
+                    
                     console.log(answer);
                 })();
             });

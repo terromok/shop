@@ -47,6 +47,13 @@ function getBasket() {
     return $basket;
 }
 
+function getEditedRowBasket($id) {
+    $session_id = session_id();
+    $sql = "SELECT * FROM `basket` WHERE `id`={$id} AND `session_id`='{$session_id}'";
+    $basketRow = getAssocResult($sql);
+    return $basketRow[0];
+}
+
 function getBasketCount() {
     $session_id = session_id();
     $sql = "SELECT COUNT(*) as count FROM `basket` WHERE `session_id`='$session_id'";

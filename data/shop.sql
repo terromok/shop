@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Сен 04 2019 г., 00:08
+-- Время создания: Сен 06 2019 г., 22:33
 -- Версия сервера: 5.7.23
 -- Версия PHP: 7.1.22
 
@@ -42,13 +42,17 @@ CREATE TABLE `basket` (
 --
 
 INSERT INTO `basket` (`id`, `goods_id`, `goods_price`, `session_id`, `quantyty`, `summ_row`) VALUES
-(52, 2, 1, '1d5uosovhv7tnmjqu7afaadnc35v200j', 3, 3),
-(53, 3, 14, '1d5uosovhv7tnmjqu7afaadnc35v200j', 5, 70),
-(54, 8, 48, '1d5uosovhv7tnmjqu7afaadnc35v200j', 2, 96),
-(55, 10, 11, '1d5uosovhv7tnmjqu7afaadnc35v200j', 5, 55),
-(56, 1, 22, '1d5uosovhv7tnmjqu7afaadnc35v200j', 1, 22),
-(57, 9, 78, '1d5uosovhv7tnmjqu7afaadnc35v200j', 1, 78),
-(58, 11, 92, '1d5uosovhv7tnmjqu7afaadnc35v200j', 1, 92);
+(69, 1, 22, 'chn2vgkfho6v0ue5ucs4nteriujju798', 4, 88),
+(70, 2, 26, 'chn2vgkfho6v0ue5ucs4nteriujju798', 5, 130),
+(71, 3, 14, 'chn2vgkfho6v0ue5ucs4nteriujju798', 1, 14),
+(74, 1, 22, '7nrhfrq3hjqjq9abtfcjsrsnmoqv1of8', 2, 44),
+(75, 2, 26, '7nrhfrq3hjqjq9abtfcjsrsnmoqv1of8', 1, 26),
+(76, 3, 14, '7nrhfrq3hjqjq9abtfcjsrsnmoqv1of8', 2, 28),
+(78, 7, 78, '7nrhfrq3hjqjq9abtfcjsrsnmoqv1of8', 2, 156),
+(79, 6, 48, '7nrhfrq3hjqjq9abtfcjsrsnmoqv1of8', 4, 192),
+(84, 8, 48, 'lu4plkn6aaokho1mlc9cd8ora1bjrt66', 1, 48),
+(85, 7, 78, 'lu4plkn6aaokho1mlc9cd8ora1bjrt66', 1, 78),
+(87, 10, 11, 'lu4plkn6aaokho1mlc9cd8ora1bjrt66', 1, 11);
 
 -- --------------------------------------------------------
 
@@ -86,7 +90,9 @@ CREATE TABLE `feedback` (
 --
 
 INSERT INTO `feedback` (`id`, `name`, `feedback`) VALUES
-(28, 'Олег', 'Все хорошо');
+(28, 'Олег', 'Все хорошо'),
+(29, 'ывавфывы222', ''),
+(30, 'Рома2', 'fghjk');
 
 -- --------------------------------------------------------
 
@@ -108,7 +114,7 @@ CREATE TABLE `goods` (
 
 INSERT INTO `goods` (`id`, `image`, `name`, `description`, `price`) VALUES
 (1, 'prod1.png', 'Галстук', 'валпь ьывадьпавьпавь валпвальпав ь', 22),
-(2, 'prod2.png', 'Штаны', 'ват пыпавыь ап  а пь апь а.', 1),
+(2, 'prod2.png', 'калоши', 'ват пыпавыь ап  а пь апь а.', 26),
 (3, 'prod3.png', 'Шапка', 'оап тапвтподюадл двапьадвль ддыап ь', 14),
 (6, 'prod4.png', 'Рубашка', 'атлвопт лыатплтпво аоптватпжавопт ыалпвопаво ав', 48),
 (7, 'prod5.png', 'Трусы', 'авпдавлдл ьвадлпьдваьпавлд ьавль авльпвад', 78),
@@ -177,7 +183,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `login`, `pass`, `hash`) VALUES
-(1, 'admin', '$2y$10$GAh95KWqFf1Fw4YyH/BCnuODYbJ1Mln78vDuOIwj7WQvChhR8QcX.', '1161959245d694d1884f319.27786906');
+(1, 'admin', '$2y$10$GAh95KWqFf1Fw4YyH/BCnuODYbJ1Mln78vDuOIwj7WQvChhR8QcX.', '19735971835d7282012e0015.82176575');
 
 --
 -- Индексы сохранённых таблиц
@@ -233,7 +239,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `basket`
 --
 ALTER TABLE `basket`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT для таблицы `category`
@@ -245,7 +251,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT для таблицы `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT для таблицы `goods`
