@@ -21,7 +21,7 @@
 			<div class="mega">
 				<ul>
 					<li><a href="/goodsedit/">Редактор каталога</a></li>
-					<li><a href="">Редактор заказов</a></li>
+					<!--<li><a href="">Редактор заказов</a></li>-->
 				</ul>
 			</div>
 		</li>

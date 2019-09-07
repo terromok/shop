@@ -74,24 +74,36 @@ function prepareVariables($page, $action, $id)
             break;
 
         case 'goodsedit':
-
-
-            $params['goods'] = getAllGoods();
+            if (($_SESSION['login'] == admin)) {
+                $params['goods'] = getAllGoods();
+            } else {
+                header("Location: /");
+            };
+            
             break;
 
         case 'item':
-            //print_r($page);
-            //print_r($action);
-            print_r($id);
             $params['good'] = getOneGood($id);
             break;
 
-        case 'itemedit':
-            //print_r($page);
-            //print_r($action);
-            //print_r($id);
+        case 'goodedit':
             $params['good'] = getOneGood($id);
             break;
+
+        /*case 'itemedit':
+            $data = json_decode(file_get_contents('php://input'));
+            $id = (int)$data->id;
+
+            itemEdit($id);
+
+            //$params['count'] = getBasketCount();
+
+            header("Content-type: application/json");
+            echo json_encode($params);
+            $params['good'] = getOneGood($id);
+            die();
+            
+            break;*/
 
         case 'api':
             if ($action == "buy") {
@@ -145,7 +157,7 @@ function prepareVariables($page, $action, $id)
                 $params['count'] = getBasketCount();
                 $params['summ'] = summFromBasket();
                 $params['id'] = $id;
-                $params['basket'] = getEditedRowBasket($id);   //не знаю, как подключить
+                $params['basket'] = getEditedRowBasket($id);   
 
                 header("Content-type: application/json");
                 echo json_encode($params);
@@ -154,7 +166,11 @@ function prepareVariables($page, $action, $id)
             if ($action == "itemEdit") {
                 $data = json_decode(file_get_contents('php://input'));
                 $id = (int)$data->id;
-                $params['goods'] = itemEdit($id);
+                $name = $data->name;
+                $description = $data->description;
+                $price = $data->price; 
+
+                itemEdit($id,$name,$description,$price);
 
                 header("Content-type: application/json");
                 echo json_encode($params);

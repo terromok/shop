@@ -120,18 +120,28 @@
 
             $(".itemedit").on('click', function (e) {
                 let id = e.target.id;
+                //let name = e.target.attributes[4].value;
+                let name = $("#name").val();
+                let description = $("#description").val();
+                let price = $("#price").val();
                 (async () => {
-                    const response = await fetch('/api/itemEdit/', {
+                    let data = {
+                        id: id,
+                        name: name,
+                        description: description,
+                        price: price
+                    };
+                    let response = await fetch('/api/itemEdit/', {
                         method: 'POST',
-                        headers: new Headers({
-                            'Content-Type': 'application/json'
-                        }),
-                        body: JSON.stringify({
-                            id: id
-                        }),
+                        headers: {
+                            'Content-Type': 'application/json;charset=utf-8'
+                        },
+                        body: JSON.stringify(data)
                     });
-                    const answer = await response.json();
-                    //$('#counter').html(answer.count);
+                    let answer = await response.json();
+                    //alert(answer.message);
+                    //$('.suda').html(answer);
+
                     //$('#summ').html(answer.summ);
                     //basket = answer.basket;           как-то надо асинхронно передать...
                     console.log(answer);
